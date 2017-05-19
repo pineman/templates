@@ -1,22 +1,43 @@
-\documentclass[portuguese, a4paper]{article}
+\documentclass[portuguese, a4paper, titlepage]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage[margin=2.5cm]{geometry}
-%\usepackage{newtxmath, newtxtext}
-\usepackage{lmodern}
+\usepackage{newtxmath, newtxtext}
 
 \usepackage{indentfirst}
-\usepackage{mathtools}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \allowdisplaybreaks
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{siunitx}
+\sisetup{inter-unit-product =\ensuremath{.}}
+\usepackage{hyperref}
 
-\newcommand\eq[0]{\Leftrightarrow}
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\alph{subsection})}
+%\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
+\newcommand{\eq}[0]{\Leftrightarrow}
+\newcommand{\mg}[1]{{\times \num{e#1}}}
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \DeclareMathOperator{\Div}{div}
 \DeclareMathOperator{\Rot}{rot}
-\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{hello}
+\rhead{hello}
+\lfoot{hello}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{1.0pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\title{hello}
+\author{João Pinheiro <joao.castro.pinheiro@tecnico.ulisboa.pt>}
 \begin{document}
+	\maketitle
+	hello
 \end{document}
