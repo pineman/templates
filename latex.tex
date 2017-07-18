@@ -15,9 +15,9 @@
 \sisetup{inter-unit-product =\ensuremath{.}}
 \usepackage{hyperref}
 
-%\renewcommand{\thesection}{\Roman{section}}
-%\renewcommand{\thesubsection}{\alph{subsection})}
-%\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\alph{subsection})}
+\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
 \newcommand{\eq}[0]{\Leftrightarrow}
 \newcommand{\mg}[1]{{\times \num{e#1}}}
 \newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
@@ -28,9 +28,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{hello}
-\rhead{hello}
-\lfoot{hello}
+\lhead{left header}
+\rhead{right header}
+\lfoot{left footer}
 \rfoot{Page \thepage}
 \renewcommand{\headrulewidth}{1.0pt}
 \renewcommand{\footrulewidth}{0.5pt}
@@ -40,4 +40,11 @@
 \begin{document}
 	\maketitle
 	hello
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\linewidth]{figure.png}
+		\caption{An example figure}
+		\label{fig:figure-example}
+	\end{figure}
 \end{document}
