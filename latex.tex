@@ -1,44 +1,63 @@
 \documentclass[portuguese, a4paper, titlepage]{article}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+%\usepackage{newtxmath, newtxtext}
+\usepackage{lmodern}
+\usepackage{csquotes}
 \usepackage{babel}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{newtxmath, newtxtext}
+\usepackage[backend=bibtex]{biblatex}
+%\usepackage[backend=biber]{biblatex}
+\addbibresource{bib.bib}
 
 \usepackage{indentfirst}
 \usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{grffile}
+\usepackage{float}
 \usepackage{amsmath}
 \allowdisplaybreaks
+\usepackage{commath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{siunitx}
 \sisetup{inter-unit-product =\ensuremath{.}}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
+% Section style
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\alph{subsection})}
 \renewcommand{\thesubsubsection}{\roman{subsubsection}.}
+
+% Useful commands
 \newcommand{\eq}[0]{\Leftrightarrow}
-\newcommand{\mg}[1]{{\times \num{e#1}}}
-\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\og}[1]{{\times \num{e#1}}}
+\newcommand{\at}[2][]{\left.#1\right|_{#2}}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \DeclareMathOperator{\Div}{div}
 \DeclareMathOperator{\Rot}{rot}
 
+% Titlepage
+\title{hello}
+\author{João Pinheiro <joao.castro.pinheiro@tecnico.ulisboa.pt>}
+
+% Header and footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{left header}
 \rhead{right header}
 \lfoot{left footer}
-\rfoot{Page \thepage}
+\rfoot{Página \thepage}
 \renewcommand{\headrulewidth}{1.0pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-\title{hello}
-\author{João Pinheiro <joao.castro.pinheiro@tecnico.ulisboa.pt>}
+% Document
 \begin{document}
+	\hypersetup{pageanchor=false}
 	\maketitle
+	\hypersetup{pageanchor=true}
 	hello
 
 	\begin{figure}[h]
@@ -47,4 +66,6 @@
 		\caption{An example figure}
 		\label{fig:figure-example}
 	\end{figure}
+
+	Ver \autoref{fig:figure-example}
 \end{document}

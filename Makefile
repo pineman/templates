@@ -1,7 +1,7 @@
-CFLAGS=-O3 -Wall -Wextra -pedantic
-#CFLAGS=-Wall -Wextra -pedantic
-#CFLAGS=-g -pg -Wall -Wextra -pedantic
-#CFLAGS=-g -Wall -Wextra -pedantic
+CFLAGS=-Wall -Wextra -pedantic
+CFLAGS+=-O3
+#CFLAGS+=-g
+#CFLAGS+=-g -pg
 CPPFLAGS=-MP -MMD
 LDFLAGS=
 CC=gcc
@@ -20,7 +20,7 @@ $(EXEC): $(SRC:%.c=%.o)
 -include $(SRC:%.c=%.d)
 
 clean:
-	rm -rf *.o *.d *.out* $(EXEC) .dummy tags
+	rm -rf *.o *.d *.out* $(EXEC) tags
 
 # This rebuilds everything if the Makefile was modified
 # http://stackoverflow.com/questions/3871444/making-all-rules-depend-on-the-makefile-itself/3892826#3892826

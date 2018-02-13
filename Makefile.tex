@@ -1,0 +1,13 @@
+TEX=pdflatex
+BIBER=bibtex
+OUT=
+
+make:
+	cd ./capa && $(TEX) capa.tex
+	$(TEX) rel.tex
+	$(BIBER) rel
+	$(TEX) rel.tex
+	mv rel.pdf $(OUT).pdf
+
+clean:
+	rm -rf $(OUT).pdf rel.aux rel.toc rel.out rel.log rel.dvi capa/capa.pdf capa/capa.aux capa/capa.log *.bbl *.bcf *.blg *.xml

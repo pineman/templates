@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-t = np.arange(0.0, 0.0006, 0.0000001)
-s = 0.9*np.e**(-12500*t)*np.cos(111102*t + np.pi/2)
-plt.plot(t, s)
+# x space
+x = np.arange(0.0, 10.0, 1e-3)
+# y function, use np. math functions
+y =
+plt.plot(x, y)
 
-plt.xlabel('t [s]')
-plt.ylabel('u_C [V]')
-plt.title('RLC paralelo - Tensão no condensador - Regime periódico amortecido')
+plt.xlabel('')
+plt.ylabel('')
+plt.title('')
 plt.grid(True)
-plt.savefig('duc.png')
+plt.savefig('plot.png')
 plt.show()
