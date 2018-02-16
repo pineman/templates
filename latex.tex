@@ -1,9 +1,10 @@
 \documentclass[portuguese, a4paper, titlepage]{article}
 \usepackage[margin=2.5cm]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc} % LaTeX
+%\usepackage[utf8]{inputenc}
 %\usepackage{newtxmath, newtxtext}
-\usepackage{lmodern}
+%\usepackage{lmodern}
+\usepackage{fontspec}
 \usepackage{csquotes}
 \usepackage{babel}
 \usepackage[backend=bibtex]{biblatex}
@@ -12,18 +13,18 @@
 
 \usepackage{indentfirst}
 \usepackage{graphicx}
-\graphicspath{{images/}}
+	\graphicspath{{images/}}
 \usepackage{grffile}
 \usepackage{float}
 \usepackage{amsmath}
-\allowdisplaybreaks
+	\allowdisplaybreaks
 \usepackage{commath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{siunitx}
-\sisetup{inter-unit-product =\ensuremath{.}}
+	\sisetup{inter-unit-product =\ensuremath{.}}
 \usepackage{hyperref}
-\usepackage{pdfpages}
+%\usepackage{pdfpages}
 
 % Section style
 \renewcommand{\thesection}{\Roman{section}}
@@ -55,14 +56,16 @@
 
 % Document
 \begin{document}
+	%\includepdf[pages={1}]{capa/capa.pdf}
 	\hypersetup{pageanchor=false}
 	\maketitle
 	\hypersetup{pageanchor=true}
+
 	hello
 
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.6\linewidth]{figure.png}
+		\includegraphics[width=0.6\linewidth]{figure.pdf}
 		\caption{An example figure}
 		\label{fig:figure-example}
 	\end{figure}
