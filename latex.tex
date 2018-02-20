@@ -1,15 +1,15 @@
 \documentclass[portuguese, a4paper, titlepage]{article}
 \usepackage[margin=2.5cm]{geometry}
-%\usepackage[T1]{fontenc} % LaTeX
-%\usepackage[utf8]{inputenc}
+%\usepackage{fontspec} % XeLaTeX
+\usepackage[T1]{fontenc} % LaTeX
+\usepackage[utf8]{inputenc}
 %\usepackage{newtxmath, newtxtext}
 %\usepackage{lmodern}
-\usepackage{fontspec}
 \usepackage{csquotes}
 \usepackage{babel}
 \usepackage[backend=bibtex]{biblatex}
 %\usepackage[backend=biber]{biblatex}
-\addbibresource{bib.bib}
+\addbibresource{bibliography.bib}
 
 \usepackage{indentfirst}
 \usepackage{graphicx}
@@ -24,7 +24,6 @@
 \usepackage{siunitx}
 	\sisetup{inter-unit-product =\ensuremath{.}}
 \usepackage{hyperref}
-%\usepackage{pdfpages}
 
 % Section style
 \renewcommand{\thesection}{\Roman{section}}
@@ -32,16 +31,18 @@
 \renewcommand{\thesubsubsection}{\roman{subsubsection}.}
 
 % Useful commands
-\newcommand{\eq}[0]{\Leftrightarrow}
+\newcommand{\eq}{\Leftrightarrow} % Equivalente
+% Ordem de grandeza, e.g., "2\og{5}" => "2e5"
 \newcommand{\og}[1]{{\times \num{e#1}}}
-\newcommand{\at}[2][]{\left.#1\right|_{#2}}
+% Em um ponto, e.g. "f(x)\at{x=5}" = f(x)|x=5
+\newcommand{\at}[1]{\left.\right|_{#1}}
+ % Para numerar apenas uma equação
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \DeclareMathOperator{\Div}{div}
 \DeclareMathOperator{\Rot}{rot}
-
-% Titlepage
-\title{hello}
-\author{João Pinheiro <joao.castro.pinheiro@tecnico.ulisboa.pt>}
+\newcommand{\real}{\ensuremath{\mathds{R}}}
+ % Operator "d", e.g., "\frac{\dx{f}}{\dx{x}} = "df/dx"
+\newcommand{\dx}[1]{\ensuremath{\operatorname{d}\!{#1}}}
 
 % Header and footer
 \usepackage{fancyhdr}
@@ -56,19 +57,18 @@
 
 % Document
 \begin{document}
-	%\includepdf[pages={1}]{capa/capa.pdf}
 	\hypersetup{pageanchor=false}
-	\maketitle
+	\include{capa}
 	\hypersetup{pageanchor=true}
 
 	hello
 
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.6\linewidth]{figure.pdf}
-		\caption{An example figure}
-		\label{fig:figure-example}
-	\end{figure}
+	%\begin{figure}[h]
+	%	\centering
+	%	\includegraphics[width=0.6\linewidth]{figure.pdf}
+	%	\caption{An example figure}
+	%	\label{fig:figure-example}
+	%\end{figure}
 
 	Ver \autoref{fig:figure-example}
 \end{document}
