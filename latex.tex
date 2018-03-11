@@ -1,15 +1,15 @@
-\documentclass[portuguese, a4paper, titlepage]{article}
+\documentclass[portuguese, a4paper]{article}
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage{fontspec} % XeLaTeX
 \usepackage[T1]{fontenc} % LaTeX
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} % LaTeX
 %\usepackage{newtxmath, newtxtext}
 %\usepackage{lmodern}
 \usepackage{csquotes}
 \usepackage{babel}
-\usepackage[backend=bibtex]{biblatex}
+%\usepackage[backend=bibtex]{biblatex}
 %\usepackage[backend=biber]{biblatex}
-\addbibresource{bibliography.bib}
+%\addbibresource{bibliography.bib}
 
 \usepackage{indentfirst}
 \usepackage{graphicx}
@@ -18,47 +18,66 @@
 \usepackage{float}
 \usepackage{amsmath}
 	\allowdisplaybreaks
-\usepackage{commath}
-\usepackage{amssymb}
-\usepackage{mathtools}
+\usepackage{physics}
 \usepackage{siunitx}
 	\sisetup{inter-unit-product =\ensuremath{.}}
 \usepackage{hyperref}
 
-% Section style
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\alph{subsection})}
-\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
+% Section styles
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\alph{subsection})}
+%\renewcommand{\thesubsubsection}{\roman{subsubsection}.}
 
 % Useful commands
 \newcommand{\eq}{\Leftrightarrow} % Equivalente
 % Ordem de grandeza, e.g., "2\og{5}" => "2e5"
 \newcommand{\og}[1]{{\times \num{e#1}}}
-% Em um ponto, e.g. "f(x)\at{x=5}" = f(x)|x=5
-\newcommand{\at}[1]{\left.\right|_{#1}}
- % Para numerar apenas uma equação
+% Para numerar apenas uma equação
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-\DeclareMathOperator{\Div}{div}
-\DeclareMathOperator{\Rot}{rot}
-\newcommand{\real}{\ensuremath{\mathds{R}}}
- % Operator "d", e.g., "\frac{\dx{f}}{\dx{x}} = "df/dx"
-\newcommand{\dx}[1]{\ensuremath{\operatorname{d}\!{#1}}}
 
 % Header and footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{left header}
-\rhead{right header}
-\lfoot{left footer}
-\rfoot{Página \thepage}
-\renewcommand{\headrulewidth}{1.0pt}
+\lhead{Electrotecnia Teórica}
+\rhead{1º Laboratório}
+\lfoot{\small Engenharia Eletrotécnica e de Computadores - IST}
+\rfoot{Page \thepage}
 \renewcommand{\footrulewidth}{0.5pt}
 
 % Document
 \begin{document}
 	\hypersetup{pageanchor=false}
-	\include{capa}
+	\begin{titlepage}
+		\center
+		\textsc{\bfseries\LARGE Instituto Superior Técnico}\\[1cm] % Name of your university/college
+		\includegraphics[height=1.5cm]{IST_Logo.pdf}\\[2.5cm]
+
+		\textsc{\large Engenharia Eletrotécnica e de Computadores}\\[0.5cm] % Major heading such as course name
+		\textsc{\Large Eletrotecnia Teórica}\\[0.5cm] % Minor heading such as course title
+		\textsc{\large 2017/2018 2º Semestre}\\[2cm]
+
+		\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+		\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+			\textsc{\Huge \bfseries 1º Trabalho Laboratorial}\\[0.2cm]
+			\bigskip
+			\textsc{\large \bfseries Determinação Experimental Da Matriz De Coeficientes De Capacidade De Um Sistema De N+1 Condutores \\
+			(Via Analogia Reo-eléctrica)}\\[0.2cm]
+		\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+		\rule{\textwidth}{1.6pt}\\[5cm]
+
+		\begin{minipage}{0.9\textwidth}
+			\begin{flushleft} \large
+				\begin{Large}\bfseries\textsc{Autores:}\end{Large}\\[0.4cm]
+				\begin{tabular}{l l l}
+					João Pinheiro				& 84086 & \normalsize joao.castro.pinheiro@tecnico.ulisboa.pt \\
+				\end{tabular}
+			\end{flushleft}
+		\end{minipage}\\[0.5cm]
+
+		\large \bfseries Laboratório segunda-feira, 09h30-11h30, Grupo D\\
+		\large 12 de março de 2018\\[1cm]
+	\end{titlepage}
 	\hypersetup{pageanchor=true}
 
 	hello
@@ -70,5 +89,5 @@
 	%	\label{fig:figure-example}
 	%\end{figure}
 
-	Ver \autoref{fig:figure-example}
+	%Ver \autoref{fig:figure-example}
 \end{document}
