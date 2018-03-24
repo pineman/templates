@@ -1,10 +1,9 @@
-\documentclass[portuguese, a4paper]{article}
+\documentclass[a4paper, titlepage, portuguese]{article}
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage{fontspec} % XeLaTeX
 \usepackage[T1]{fontenc} % LaTeX
 \usepackage[utf8]{inputenc} % LaTeX
 %\usepackage{newtxmath, newtxtext}
-%\usepackage{lmodern}
 \usepackage{csquotes}
 \usepackage{babel}
 %\usepackage[backend=bibtex]{biblatex}
@@ -41,13 +40,13 @@
 \fancyhf{}
 \lhead{Electrotecnia Teórica}
 \rhead{1º Laboratório}
-\lfoot{\small Engenharia Eletrotécnica e de Computadores - IST}
-\rfoot{Page \thepage}
+\lfoot{IST - MEEC}
+\rfoot{Página \thepage}
+\renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
 % Document
 \begin{document}
-	\hypersetup{pageanchor=false}
 	\begin{titlepage}
 		\center
 		\textsc{\bfseries\LARGE Instituto Superior Técnico}\\[1cm] % Name of your university/college
@@ -77,8 +76,9 @@
 
 		\large \bfseries Laboratório segunda-feira, 09h30-11h30, Grupo D\\
 		\large 12 de março de 2018\\[1cm]
+		\setcounter{page}{0}
 	\end{titlepage}
-	\hypersetup{pageanchor=true}
+	%\tableofcontents
 
 	hello
 
@@ -90,4 +90,6 @@
 	%\end{figure}
 
 	%Ver \autoref{fig:figure-example}
+
+	%\printbibliography
 \end{document}

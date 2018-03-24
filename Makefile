@@ -19,6 +19,7 @@ $(EXEC): $(SRC:%.c=%.o)
 
 -include $(SRC:%.c=%.d)
 
+.PHONY=clean
 clean:
 	rm -rf *.o *.d *.out* $(EXEC) tags
 
