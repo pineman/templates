@@ -1,4 +1,4 @@
-CFLAGS=-Wall -Wextra -pedantic
+CFLAGS=-Wall -Wextra -pedantic -Wno-unused-parameter -Wno-unused-variable
 #CFLAGS+=-O3
 CFLAGS+=-g
 #CFLAGS+=-g -pg

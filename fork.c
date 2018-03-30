@@ -7,7 +7,7 @@
 #include <string.h>
 #include <time.h>
 
-#define chk_perror() { if (errno) { fprintf(stderr, "%s:%d %s\n", __FILE__, __LINE__-1, strerror(errno)); exit(errno); } }
+#define chk_perror() { if (errno) { fprintf(stderr, "%s:%d errno = %d: %s\n", __FILE__, __LINE__-1, errno, strerror(errno)); exit(errno); } }
 
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -23,14 +23,12 @@ void parent_process()
 
 int main(int argc, char *argv[])
 {
-	setlocale(LC_ALL, "");
-
 	pid_t pid;
 	int i;
 	for (i = 0; i < NUM_CHILDREN; i++) {
 		errno = 0;
 		pid = fork();
-		chk_perror();
+		if (pid == -1) chk_perror();
 		if (pid == 0) {
 			break; // don't continue fork()ing if we're a child
 		}
