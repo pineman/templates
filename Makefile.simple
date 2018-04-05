@@ -1,11 +1,15 @@
-CFLAGS=-Wall -Wextra -pedantic -Wno-unused-parameter -Wno-unused-variable
-#CFLAGS+=-O3
-CFLAGS+=-g
-#CFLAGS+=-g -pg
+#CC=
+#CCX=
+CFLAGS=-Wall -Wextra -pedantic
+CFLAGS+=-O0
+#CFLAGS+=-g -Og
+#CFLAGS+=-pg
+#CXXFLAGS=$(CFLAGS)
 CPPFLAGS=
 LDFLAGS=
-CC=gcc
-SRC=$(wildcard *.c)
+LDLIBS=
+SRCDIR=.
+SRC!=find $(SRCDIR) -type f -name "*.c"
 
 all: $(SRC:%.c=%)
 

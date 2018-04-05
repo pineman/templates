@@ -1,33 +1,51 @@
+#CC=
+#CCX=
 CFLAGS=-Wall -Wextra -pedantic
-CFLAGS+=-O3
-#CFLAGS+=-g
-#CFLAGS+=-g -pg
-CPPFLAGS=-MP -MMD
+CFLAGS+=-O0
+#CFLAGS+=-g -Og
+#CFLAGS+=-pg
+#CXXFLAGS=$(CFLAGS)
+CPPFLAGS=
 LDFLAGS=
-CC=gcc
-SRC=$(wildcard *.c)
-EXEC=
+LDLIBS=
+SRCDIR=../src
+SRC!=find $(SRCDIR) -type f -name "*.c"
 
-all:
-	make $(EXEC)
-	rm -rf *.d
+# Define executables and their link dependencies here
+EXECS = exec1
+exec1_DEPS = file1.c
+exec1_LIBS = m
 
-$(EXEC): $(SRC:%.c=%.o)
-# This will implicity make all the .c files with *FLAGS and with
-# dependencies generated automatically by CPPFLAGS, included below (.d files)
-	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS)
+###############################################################################
+# No more user editing is needed below
+###############################################################################
+OBJDIR=obj
 
--include $(SRC:%.c=%.d)
+define EXEC_templ =
+$(1): $$(addprefix $$(OBJDIR)/,$$($(1)_DEPS:%.c=%.o))
+	$(HIDE)$(CC) -o $$@ $$(LDFLAGS) $$(LDLIBS) $$($(1)_LIBS:%=-l%) $$^
+endef
 
-.PHONY=clean
+$(foreach exec,$(EXECS),$(eval $(call EXEC_templ,$(exec))))
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(HIDE)$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) $<
+
+-include $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.d)
+$(OBJDIR)/%.d: $(SRCDIR)/%.c
+	@mkdir -p $(OBJDIR)
+	@$(CC) -MM -MF $@ $^
+
+.PHONY=clean all
+.DEFAULT_GOAL=all
+all: $(EXECS)
+
 clean:
-	rm -rf *.o *.d *.out* $(EXEC) tags
+	$(HIDE)rm -rf $(OBJDIR) $(EXECS)
 
 # This rebuilds everything if the Makefile was modified
 # http://stackoverflow.com/questions/3871444/making-all-rules-depend-on-the-makefile-itself/3892826#3892826
 -include .dummy
 .dummy: Makefile
-	touch $@
-	$(MAKE) -s clean
-
-# TODO: create a test target: automate memcheck, massif & gprof
+	@touch $@
+	@$(MAKE) -s clean
