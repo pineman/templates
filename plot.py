@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # x space
-x = np.arange(0.0, 10.0, 1e-3)
+x = np.linspace(0.0, 10.0, 1000)
 # y function, use np. math functions
 y =
 plt.plot(x, y)

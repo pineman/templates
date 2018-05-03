@@ -19,7 +19,8 @@
 	\allowdisplaybreaks
 \usepackage{physics}
 \usepackage{siunitx}
-	\sisetup{inter-unit-product =\ensuremath{.}}
+	\sisetup{inter-unit-product =\ensuremath{.}, output-complex-root=\ensuremath{j},
+		complex-root-position=before-number
 \usepackage{hyperref}
 
 % Section styles
@@ -29,8 +30,6 @@
 
 % Useful commands
 \newcommand{\eq}{\Leftrightarrow} % Equivalente
-% Ordem de grandeza, e.g., "2\og{5}" => "2e5"
-\newcommand{\og}[1]{{\times \num{e#1}}}
 % Para numerar apenas uma equação
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
@@ -78,7 +77,7 @@
 		\large 12 de março de 2018\\[1cm]
 		\setcounter{page}{0}
 	\end{titlepage}
-	%\tableofcontents
+	%\tableofcontents \newpage
 
 	hello
 

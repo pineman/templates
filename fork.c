@@ -1,14 +1,15 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
-#include <errno.h>
-#include <limits.h>
+#include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <string.h>
+#include <limits.h>
+#include <assert.h>
+#include <errno.h>
+#include <locale.h>
 #include <time.h>
-#include <stddef.h>
 
-#define mperror() { fprintf(stderr, "%s:%d errno = %d: %s\n", __FILE__, __LINE__-1, errno, strerror(errno)); exit(errno); }
+#define emperror(r) { fprintf(stderr, "%s:%d errno = %d: %s\n", __FILE__, __LINE__-1, r, strerror(r)); exit(r); }
 
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 	for (i = 0; i < NUM_CHILDREN; i++) {
 		errno = 0;
 		pid = fork();
-		if (pid == -1) mperror();
+		if (pid == -1) emperror(errno);
 		if (pid == 0) {
 			break; // don't continue fork()ing if we're a child
 		}
