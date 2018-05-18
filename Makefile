@@ -1,5 +1,5 @@
 #CC=clang
-#CCX=
+#CXX=
 CFLAGS=-Wall -Wextra -pedantic -std=c99
 #CFLAGS+=-O0
 CFLAGS+=-g -Og
