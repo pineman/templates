@@ -9,7 +9,12 @@
 #include <locale.h>
 #include <time.h>
 
-#define emperror(r) { fprintf(stderr, "%s:%d errno = %d: %s\n", __FILE__, __LINE__-1, r, strerror(r)); exit(r); }
+#define emperror(err) do { \
+	char __buf__[1024]; \
+	strerror_r(err, __buf__, sizeof(__buf__)); \
+	fprintf(stderr, "\x1B[31m%s:%d %s(), errno = %d %s\n\x1B[0m", __FILE__, __LINE__-1, __func__, err, __buf__); \
+	exit(err); \
+} while(0);
 
 int main(int argc, char *argv[])
 {
