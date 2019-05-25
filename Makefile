@@ -1,16 +1,24 @@
-#CC=clang
+#CC=gcc -fstack-clash-protection
+CC=clang
 #CXX=
-CFLAGS=-Wall -Wextra -Wpedantic -std=c99 -Wunused-result -Wunreachable-code
-#CFLAGS=-Weverything
-#CFLAGS+=-O3
-CFLAGS+=-g -Og
-#CFLAGS+=-pg
-#CFLAGS+=-pthread
-CFLAGS+=-fdiagnostics-color=always -march=native -flto
+CFLAGS+= -std=c11 -fno-plt -pipe -fdiagnostics-color=always -march=native -pthread
+CFLAGS+= -Wall -Wextra -Wpedantic -Wunused-result -Wunreachable-code -Werror=implicit-fallthrough=5
+#CFLAGS+= -Weverything
+#CFLAGS+= -O3 -flto
+CFLAGS+= -g3 -Og
+#CFLAGS+= -pg
+#CFLAGS+= -D
+CFLAGS+= -fsanitize=undefined
+#CFLAGS+= -fsanitize=address -fsanitize=leak -fcheck-pointer-bounds
+CFLAGS+= -fsanitize=thread
+# Security flags
+CFLAGS+= -D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong -fPIE
+CFLAGS+= -I cb_common -I library -D_POSIX_C_SOURCE="200809L"
 #CXXFLAGS=$(CFLAGS)
-#CPPFLAGS=-D
-LDFLAGS=-flto
-LDLIBS=
+#LDFLAGS+= -fuse-ld=gold
+LDFLAGS+= -z noexecstack -z relro -z now -pie
+LDLIBS+=
+
 SRCDIR=.
 SRC=$(shell find $(SRCDIR) -type f -name "*.c" | cut -d"/" -f2-)
 

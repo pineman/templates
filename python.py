@@ -8,4 +8,5 @@ def main():
     pass
 
 if __name__ == '__main__':
+    exec(open(__import__('os').environ.get('PYTHONSTARTUP')).read())
     main()

@@ -1,5 +1,5 @@
 % !TEX encoding = UTF-8 Unicode
-\documentclass[a4paper, titlepage, portuguese]{article}
+\documentclass[12pt, a4paper, titlepage, portuguese]{article}
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage[no-math]{fontspec} % XeLaTeX
 \usepackage[T1]{fontenc} % LaTeX
@@ -9,18 +9,20 @@
 	\usemintedstyle{tango}
 \usepackage{csquotes}
 \usepackage{babel}
-%\usepackage[backend=bibtex]{biblatex}
 %\usepackage[backend=biber]{biblatex}
 %\addbibresource{bibliography.bib}
+
 
 \usepackage{indentfirst}
 \usepackage{graphicx}
 	\graphicspath{{images/}}
+\usepackage{wrapfig}
 \usepackage{grffile}
 \usepackage{float}
 \usepackage[tableposition=top,skip=6pt]{caption}
 \usepackage{amsmath}
-	%\allowdisplaybreaks
+	\allowdisplaybreaks
+\usepackage{tabu}
 \usepackage{cases}
 \usepackage[makeroom]{cancel}
 \usepackage[arrowdel]{physics}
@@ -32,6 +34,7 @@
 \usepackage[tableposition=top]{caption}
 \usepackage{dirtree}
 \usepackage{tabto}
+%\usepackage{microtype}
 
 % Section styles
 %\renewcommand{\thesection}{\Roman{section}}
@@ -54,7 +57,7 @@
 \rhead{1º Laboratório}
 \lfoot{IST - MEEC}
 \rfoot{Página \thepage}
-\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
 % Document
