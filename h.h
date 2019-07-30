@@ -1,4 +1,2 @@
-#ifndef _<FILE>_H
-#define _<FILE>_H
+#pragma once
 
-#endif // _<FILE>_H
